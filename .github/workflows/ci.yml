@@ -11,6 +11,10 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ZJAZD_3
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,6 +24,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: ZJAZD_3/package-lock.json
 
       - name: Install dependencies
         run: npm ci
