@@ -1,0 +1,26 @@
+{
+  "name": "zjazd_2",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "## Wybrane aplikacje internetowe: 1. [The Internet](https://the-internet.herokuapp.com/) - Zestaw prostych aplikacji do testowania. 2. [Demo Opencart](https://demo.opencart.com) - Przykładowy sklep internetowy.",
+  "main": "index.js",
+  "scripts": {
+    "test-login": "node --loader ts-node/esm test-login.ts",
+    "test-shop": "node --loader ts-node/esm test-apple.ts",
+    "test-all": "npm run test-login && npm run test-shop"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^24.10.1",
+    "chromedriver": "^142.0.3",
+    "geckodriver": "^6.1.0",
+    "selenium-webdriver": "^4.38.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/selenium-webdriver": "^4.35.4",
+    "ts-node": "^10.9.2"
+  }
+}
