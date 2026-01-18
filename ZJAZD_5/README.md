@@ -1,54 +1,46 @@
 # Laboratorium 5: Testy w Cucumber
 
-## Przygotowanie środowiska i uruchomienie testów
-1. Upewnij się, że masz zainstalowane node.js oraz npm.
-2. Uruchom instalacje zależności:
+## Przygotowanie środowiska
+1. Upewnij się, że masz zainstalowane Node.js (zalecane LTS) oraz npm.
+2. Sklonuj repozytorium i przejdź do katalogu projektu (jesteś już w katalogu `ZJAZD_5`).
+3. Zainstaluj zależności:
+
    ```bash
    npm install
    ```
-3. Uruchom testy za pomocą polecenia:
+
+   > Uwaga: projekt używa `ts-node/esm` i TypeScript w konfiguracji ESM; nie trzeba dodatkowo kompilować plików TS przed uruchomieniem testów.
+
+## Uruchamianie testów BDD (Cucumber)
+Repo zawiera przygotowane skrypty npm do uruchamiania testów:
+
+- Uruchom testy w Chrome:
+
    ```bash
-   npm run test-all
+   npm run bdd:chrome
    ```
 
-## Wybrane aplikacje internetowe:
-1. [The Internet](https://the-internet.herokuapp.com/) - Zestaw prostych aplikacji do testowania.
-2. [Apple](https://www.apple.com) – Oficjalna strona producenta sprzętu elektronicznego.
+- Uruchom testy w Firefox:
 
-## Scenariusz 1 - logowanie poprawne i błędne (The Internet)
+   ```bash
+   npm run bdd:firefox
+   ```
 
-### Cel:
-Przetestowanie funkcjonalności logowania z poprawnymi i błędnymi danymi.
+- Uruchom oba zestawy kolejno (Chrome, a potem Firefox):
 
-### Kroki:
-1. Otwórz stronę [The Internet - Login Page](https://the-internet.herokuapp.com/login).
-2. Wprowadź poprawną nazwę użytkownika: `tomsmith`.
-3. Wprowadź poprawne hasło: `SuperSecretPassword!`.
-4. Kliknij przycisk "Login".
-5. Sprawdź, czy pojawił się komunikat o pomyślnym logowaniu.
-6. Wyloguj się, klikając przycisk "Logout".
-7. Wróć do strony logowania.
-8. Wprowadź błędną nazwę użytkownika: `wronguser`.
-9. Wprowadź błędne hasło: `wrongpassword`.
-10. Kliknij przycisk "Login".
-11. Sprawdź, czy pojawił się komunikat o błędnym logowaniu
+   ```bash
+   npm run bdd:all
+   ```
 
-### Oczekiwane wyniki:
-- Po poprawnym logowaniu aplikacja powinna przekierować użytkownika do strony z komunikatem o sukcesie.
-- Po błędnym logowaniu aplikacja powinna wyświetlić komunikat o błędzie.
+- Tryb "suchy" (sprawdzanie importów / dry run):
 
-## Scenariusz 2 - sprawdzenie strony głównej Apple i przejście do zakupu produktu
+   ```bash
+   npm run bdd:chrome:debug
+   npm run bdd:firefox:debug
+   ```
 
-### Cel:
-Sprawdzenie poprawności działania strony głównej Apple oraz przejścia do podstrony zakupu produktu iPhone.
+Skrypty uruchamiają Cucumber przez `ts-node/esm` (ESM runtime). Jeżeli chcesz uruchomić specyficzny scenariusz lub tag, możesz przekazać dodatkowe argumenty do cucumber-js używając bezpośrednio polecenia, np.:
 
-### Kroki:
-1. Otwórz stronę główną Apple (https://www.apple.com).
-2. Sprawdź, czy tytuł strony zawiera słowo „Apple”.
-3. Zlokalizuj przycisk „Buy” dla produktu „iPhone 17 Pro”.
-4. Kliknij przycisk „Buy”.
-5. Sprawdź, czy nastąpiło przekierowanie na stronę zakupu produktu.
-
-### Oczekiwane wyniki:
-- Strona główna Apple otwiera się poprawnie, a jej tytuł zawiera słowo „Apple”.
-- Po kliknięciu przycisku „Buy” użytkownik zostaje przekierowany na stronę zakupu „iPhone 17 Pro”.
+```bash
+BROWSER=chrome node --loader ts-node/esm ./node_modules/.bin/cucumber-js --import ./features/step.ts --format progress --tags "@apple"
+```
