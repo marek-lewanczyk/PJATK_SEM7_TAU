@@ -1,0 +1,29 @@
+{
+  "name": "zjazd_5",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "## Wybrane aplikacje internetowe: 1. [The Internet](https://the-internet.herokuapp.com/) - Zestaw prostych aplikacji do testowania. 2. [Demo Opencart](https://demo.opencart.com) - Przykładowy sklep internetowy.",
+  "main": "index.js",
+  "scripts": {
+    "bdd:chrome": "BROWSER=chrome node --loader ts-node/esm ./node_modules/.bin/cucumber-js --import ./support/hooks.ts --import ./features/step.ts --format progress",
+    "bdd:firefox": "BROWSER=firefox node --loader ts-node/esm ./node_modules/.bin/cucumber-js --import ./support/hooks.ts --import ./features/step.ts --format progress",
+    "bdd:all": "npm run bdd:chrome && npm run bdd:firefox",
+    "bdd:chrome:debug": "BROWSER=chrome node --loader ts-node/esm ./node_modules/.bin/cucumber-js --import ./support/hooks.ts --import ./features/step.ts --dry-run --format progress",
+    "bdd:firefox:debug": "BROWSER=firefox node --loader ts-node/esm ./node_modules/.bin/cucumber-js --import ./support/hooks.ts --import ./features/step.ts --dry-run --format progress"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^24.10.1",
+    "chromedriver": "^142.0.3",
+    "geckodriver": "^6.1.0",
+    "selenium-webdriver": "^4.38.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.5.0",
+    "@types/selenium-webdriver": "^4.35.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
