@@ -8,9 +8,6 @@ Ten projekt dostarcza atrapy REST API dla prostego systemu płatności i faktur 
 - warstwę `FakeApiClient` w `src/client/fakeApiClient.ts`, która symuluje endpointy i zwraca obiekty typu `ApiResponse<T>`,
 - testy w `tests/` używające klienta i mocków.
 
-Base URL: https://api.example.com (fikcyjny)
-Auth: Bearer token (opis, brak realnej autoryzacji)
-
 ## Zasoby i modele
 - Customer: `id, name, email, createdAt`
 - Payment: `id, customerId, amount (cents), currency, status, createdAt`
