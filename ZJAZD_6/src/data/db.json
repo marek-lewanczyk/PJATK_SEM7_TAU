@@ -1,0 +1,17 @@
+{
+  "customers": [
+    { "id": "c1", "name": "Alice Example", "email": "alice@example.com", "createdAt": "2025-01-01T10:00:00Z" },
+    { "id": "c2", "name": "Bob Example", "email": "bob@example.com", "createdAt": "2025-01-05T12:00:00Z" }
+  ],
+  "payments": [
+    { "id": "p1", "customerId": "c1", "amount": 5000, "currency": "USD", "status": "completed", "createdAt": "2025-02-01T10:00:00Z" },
+    { "id": "p2", "customerId": "c2", "amount": 1999, "currency": "USD", "status": "pending", "createdAt": "2025-02-03T11:00:00Z" }
+  ],
+  "refunds": [
+    { "id": "r1", "paymentId": "p1", "amount": 5000, "reason": "product_return", "createdAt": "2025-02-10T09:00:00Z" }
+  ],
+  "invoices": [
+    { "id": "i1", "customerId": "c1", "amount": 5000, "paid": true, "issuedAt": "2025-02-01T10:00:00Z" }
+  ]
+}
+
